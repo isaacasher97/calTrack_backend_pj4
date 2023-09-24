@@ -8,3 +8,4 @@ class Food(models.Model):
     protein = models.IntegerField(default=0)
     carbs = models.IntegerField(default=0)
     sugar = models.IntegerField(default=0)
+    
