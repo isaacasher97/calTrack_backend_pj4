@@ -1,21 +1,12 @@
-from django.shortcuts import render, HttpResponse
-# import the View Class
-from django.views import View
-# import JsonResponse
-from django.http import JsonResponse
+from.models import Food
+from rest_framework import viewsets, permissions
+from .serializers import FoodSerializer
 
-# Create your views here.
 
-##Function view, (function that returns a response)
-def foods(request):
-    if request.method == "GET":
-        return HttpResponse("Hello World")
-    if request.method == "POST":
-        return HttpResponse("This Was a POST Request")
-    
-## Class Based Views: A Class whose method returns a response
-class foods_class_views(View):
-    def get(self, request):
-        return JsonResponse({"message": "Hello World!"})
-    def post(self, request):
-        return JsonResponse({"message": "This was a POST Request"}) 
+class FoodViewSet(viewsets.ModelViewSet):
+    #Main query for the index route
+    queryset = Food.objects.all()
+    #serializer class for serializing output
+    serializer_class = FoodSerializer
+    #permission class to set permission level
+    permission_classes = [permissions.AllowAny]
