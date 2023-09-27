@@ -25,6 +25,6 @@ router = routers.DefaultRouter()
 router.register(r'foods', FoodViewSet) # register '/foods routes
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('admin/', admin.site.urls),
 ]
