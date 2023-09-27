@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "localkey2023")
 # If RENDER env var is set, DEBUG is False.
 DEBUG =  'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 ## Handling Allowed Hosts on Render
 ## add the render.com hostname to ALLOWED_HOSTS
@@ -61,13 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
 
 ## Variable CORS_ALLOW_ALL_ORIGINS is set to True to allow unrestricted access to the API.
 CORS_ALLOW_ALL_ORIGINS = True

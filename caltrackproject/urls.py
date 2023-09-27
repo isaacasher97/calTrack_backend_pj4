@@ -17,23 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from foods.views import FoodViewSet, UserViewSet
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from foods.views import FoodViewSet
 
 # create a new router
 router = routers.DefaultRouter()
 #register our viewset
 router.register(r'foods', FoodViewSet) # register '/foods routes
-router.register(r'user', UserViewSet) # register '/user routes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('token/', TokenObtainPairView.as_view(),
-         name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(),
-         name='token_refresh'),
     path('', include(router.urls)),
 ]
