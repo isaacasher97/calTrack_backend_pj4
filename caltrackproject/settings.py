@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "localkey2023")
 # If RENDER env var is set, DEBUG is False.
 DEBUG =  'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 ## Handling Allowed Hosts on Render
 ## add the render.com hostname to ALLOWED_HOSTS
