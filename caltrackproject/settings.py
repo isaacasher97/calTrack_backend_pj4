@@ -62,6 +62,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 ## Variable CORS_ALLOW_ALL_ORIGINS is set to True to allow unrestricted access to the API.
 CORS_ALLOW_ALL_ORIGINS = True
 
