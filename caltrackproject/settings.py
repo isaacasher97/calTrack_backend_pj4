@@ -40,7 +40,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -49,13 +49,12 @@ INSTALLED_APPS = [
     'foods.apps.FoodsConfig',
     'rest_framework',
     'corsheaders',
-    'userapi.apps.UserapiConfig'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,8 +64,6 @@ MIDDLEWARE = [
 
 ## Variable CORS_ALLOW_ALL_ORIGINS is set to True to allow unrestricted access to the API.
 CORS_ALLOW_ALL_ORIGINS = True
-
-CORS_ALLOWED_CREDENTIALS = True
 
 ROOT_URLCONF = 'caltrackproject.urls'
 
@@ -96,18 +93,6 @@ DATABASES = {
     'default': dj_database_url.config(
         conn_max_age=600,
         conn_health_checks=True,
-    ),
-}
-
-##User Model
-AUTH_USER_MODEL = 'userapi.AppUser'
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
     ),
 }
 
